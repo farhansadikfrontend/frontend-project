@@ -1,0 +1,93 @@
+@font-face {
+  font-family: light;
+  src: url(./AeonikTRIAL-Light.otf);
+}
+@font-face {
+  font-family: normal;
+  src: url(./AeonikTRIAL-Regular.otf);
+}
+@font-face {
+  font-family: bold;
+  src: url(./AeonikTRIAL-Bold.otf);
+}
+:root {
+  --light: #eeeeee;
+  --primary: #76abae;
+  --dark: #222831;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: normal;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  overflow: hidden;
+  background: var(--light);
+}
+body main {
+  position: relative;
+}
+body main #elem_container::-webkit-scrollbar {
+  display: none;
+}
+body main #elem_container {
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+body main #elem_container .elem:active {
+  transform: scale(0.97);
+}
+body main #elem_container .elem {
+  width: 300px;
+  height: 200px;
+  flex-shrink: 0;
+  border: 1px solid var(--primary);
+  background: var(--dark);
+  color: var(--light);
+  border-radius: 1rem;
+  position: relative;
+  cursor: pointer;
+}
+body main #elem_container .elem h2 {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+}
+body main .full_elem {
+  padding: 10px;
+  height: 100vh;
+  width: 100vw;
+  background: var(--light);
+  color: var(--dark);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+body main .full_elem span {
+  background: red;
+  padding: 5px 10px;
+  border-radius: 5px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-family: light;
+  cursor: pointer;
+}
+body main .full_elem span:active {
+  transform: scale(0.97);
+}/*# sourceMappingURL=style.css.map */
