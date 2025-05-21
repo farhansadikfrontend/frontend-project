@@ -51,9 +51,9 @@ main #elem_container::-webkit-scrollbar {
   display: none;
 }
 main #elem_container .elem {
+  flex-shrink: 0;
   width: 300px;
   height: 200px;
-  flex-shrink: 0;
   border: 1px solid var(--primary);
   background: var(--dark);
   color: var(--light);
@@ -61,6 +61,7 @@ main #elem_container .elem {
   position: relative;
   cursor: pointer;
   background-size: cover;
+  transition: transform 0.1s ease-in-out;
 }
 main #elem_container .elem:active {
   transform: scale(0.97);
@@ -91,25 +92,30 @@ main #elem_container .elem:nth-child(5) {
   background-image: url(https://img.freepik.com/free-photo/bullseye-with-three-darts_1048-1986.jpg?ga=GA1.1.953688496.1730283594&semt=ais_hybrid&w=740);
 }
 main .full_elem {
-  padding: 10px;
-  height: 100vh;
-  width: 100vw;
-  background: var(--light);
-  color: var(--dark);
   position: absolute;
   top: 0;
   left: 0;
+  height: 100vh;
+  width: 100vw;
+  padding: 10px;
+  background: var(--light);
+  color: var(--dark);
   display: none;
 }
+main .full_elem h1 {
+  font-size: 25px;
+  color: var(--dark);
+}
 main .full_elem .close {
-  background: red;
-  padding: 5px 10px;
-  border-radius: 5px;
   position: absolute;
   top: 10px;
   right: 10px;
+  background: var(--red);
+  padding: 5px 10px;
+  border-radius: 5px;
   font-weight: 300;
   cursor: pointer;
+  transition: transform 0.1s ease-in-out;
 }
 main .full_elem .close:active {
   transform: scale(0.97);
@@ -140,11 +146,12 @@ main .todo_page .todo_container .left form #btn {
   font-size: 1.3rem;
   padding: 10px 15px;
   border-radius: 10px;
-  outline: none;
   border: 1px solid var(--dark);
+  outline: none;
 }
 main .todo_page .todo_container .left form textarea {
   height: 75%;
+  resize: vertical;
 }
 main .todo_page .todo_container .left form #checkboxes {
   display: flex;
@@ -153,46 +160,47 @@ main .todo_page .todo_container .left form #checkboxes {
 }
 main .todo_page .todo_container .left form #checkboxes label {
   color: var(--light);
+  cursor: pointer;
 }
 main .todo_page .todo_container .left form #btn {
   cursor: pointer;
+  transition: transform 0.1s ease-in-out;
 }
 main .todo_page .todo_container .left form #btn:active {
-  scale: 0.97;
+  transform: scale(0.97);
 }
 main .todo_page .todo_container .right {
   height: 60%;
   background: var(--dark);
   border-radius: 10px;
   padding: 10px;
-  overflow: auto;
+  overflow-y: auto;
 }
 main .todo_page .todo_container .right .todo_tasks {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: start;
   background: var(--light);
-  height: 45px;
-  padding: 10px 15px;
   border-radius: 20px;
   margin-bottom: 10px;
-  overflow: hidden;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
   gap: 10px;
+  overflow: hidden;
+  height: 45px;
+  transition: height 0.3s ease;
 }
 main .todo_page .todo_container .right .todo_tasks:hover {
   height: auto;
 }
 main .todo_page .todo_container .right .todo_tasks .rapper {
   display: flex;
-  width: 100%;
   justify-content: space-between;
+  width: 100%;
   white-space: nowrap;
 }
 main .todo_page .todo_container .right .todo_tasks .rapper h3 .imp {
-  padding-left: 10px;
-  font-size: 11px;
   color: var(--red);
+  font-size: 11px;
+  padding-left: 10px;
 }
 main .todo_page .todo_container .right .todo_tasks .rapper h3 .false {
   display: none;
@@ -207,14 +215,67 @@ main .todo_page .todo_container .right .todo_tasks .rapper .btn {
   font-size: 14px;
   color: var(--light);
   cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  transition: transform 0.1s ease-in-out;
 }
 main .todo_page .todo_container .right .todo_tasks .rapper .btn:active {
-  scale: 0.97;
+  transform: scale(0.97);
+}
+main .daily_planner .daily_planner_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  max-height: 90vh;
+  width: 100%;
+  margin-top: 20px;
+  background: var(--light);
+  overflow-y: auto;
+}
+main .daily_planner .daily_planner_container::-webkit-scrollbar {
+  display: none;
+}
+main .daily_planner .daily_planner_container .plan {
+  background: var(--dark);
+  color: var(--light);
+  border-radius: 10px;
+  height: 60px;
+  padding: 10px 0 5px;
+  width: 100%;
+  position: relative;
+}
+main .daily_planner .daily_planner_container .plan span {
+  position: absolute;
+  top: 5px;
+  left: 15px;
+  font-size: 14px;
+  color: var(--primary);
+}
+main .daily_planner .daily_planner_container .plan .inputPlan {
+  width: 100%;
+  padding: 17px 15px 5px;
+  font-size: 20px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--light);
+  letter-spacing: 2px;
+}
+main .daily_planner .daily_planner_container .plan .inputPlan::-moz-placeholder {
+  color: var(--light);
+}
+main .daily_planner .daily_planner_container .plan .inputPlan::placeholder {
+  color: var(--light);
 }
 
 @media (min-width: 768px) {
   main .full_elem {
     padding: 30px;
+  }
+  main .full_elem h1 {
+    font-size: 40px;
   }
   main .todo_page .todo_container {
     flex-direction: row;
@@ -227,5 +288,11 @@ main .todo_page .todo_container .right .todo_tasks .rapper .btn:active {
   main .todo_page .todo_container .right {
     width: 65%;
     height: 100%;
+  }
+  main .daily_planner .daily_planner_container {
+    height: 83vh;
+  }
+  main .daily_planner .daily_planner_container .plan {
+    width: 47.9%;
   }
 }/*# sourceMappingURL=style.css.map */

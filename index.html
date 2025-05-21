@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>Frontend Project</title>
   </head>
   <body>
     <main>
@@ -16,6 +16,7 @@
         <div id="4" class="elem"><h2>Daily Goals</h2></div>
       </section>
 
+      <!-- Todo Pages -->
       <section class="full_elem todo_page">
         <span class="close" id="0">close</span>
         <h1>My Personal Task List</h1>
@@ -29,7 +30,6 @@
                 placeholder="enter your task"
               />
               <textarea
-                type="text"
                 class="inp_details"
                 rows="6"
                 placeholder="enter task details"
@@ -45,20 +45,29 @@
         </div>
       </section>
 
-      <section class="full_elem planner">
-        dd <span class="close" id="1">close</span>
+      <!-- Planner Pages -->
+      <section class="full_elem daily_planner">
+        <span class="close" id="1">close</span>
+        <h1>Organize Your Day</h1>
+        <div class="daily_planner_container"></div>
       </section>
+
+      <!-- Motivation Pages -->
       <section class="full_elem motivation">
         mm <span class="close" id="2">close</span>
       </section>
+
+      <!-- Pomodoro Pages -->
       <section class="full_elem pomodoro">
         pp <span class="close" id="3">close</span>
       </section>
+
+      <!-- Goals Pages -->
       <section class="full_elem goals">
         gg <span class="close" id="4">close</span>
       </section>
     </main>
-    <!-- Script -->
+
     <script src="script.js"></script>
   </body>
 </html>
