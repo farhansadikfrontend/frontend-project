@@ -1,98 +1,273 @@
 @font-face {
-  font-family: light;
-  src: url(./AeonikTRIAL-Light.otf);
+  font-family: "Aeonik";
+  src: url("./AeonikTRIAL-Light.otf");
+  font-weight: 300;
 }
 @font-face {
-  font-family: normal;
-  src: url(./AeonikTRIAL-Regular.otf);
+  font-family: "Aeonik";
+  src: url("./AeonikTRIAL-Regular.otf");
+  font-weight: 400;
 }
 @font-face {
-  font-family: bold;
-  src: url(./AeonikTRIAL-Bold.otf);
+  font-family: "Aeonik";
+  src: url("./AeonikTRIAL-Bold.otf");
+  font-weight: 700;
 }
 
 :root {
   --light: #eeeeee;
   --primary: #76abae;
   --dark: #222831;
+  --green: #008000;
+  --red: #ff0000;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: normal;
+  font-family: "Aeonik", sans-serif;
+  font-weight: 400;
 }
+
 html,
 body {
   height: 100%;
   width: 100%;
-}
-
-body {
   overflow: hidden;
   background: var(--light);
+}
 
-  main {
-    position: relative;
-    #elem_container::-webkit-scrollbar {
+main {
+  position: relative;
+
+  #elem_container {
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
       display: none;
     }
-    #elem_container {
-      padding: 1rem;
-      display: flex;
-      gap: 1rem;
-      overflow-x: auto;
-      scroll-behavior: smooth;
 
-      .elem:active {
+    .elem {
+      width: 300px;
+      height: 200px;
+      flex-shrink: 0;
+      border: 1px solid var(--primary);
+      background: var(--dark);
+      color: var(--light);
+      border-radius: 1rem;
+      position: relative;
+      cursor: pointer;
+      background-size: cover;
+
+      &:active {
         transform: scale(0.97);
       }
-      .elem {
-        width: 300px;
-        height: 200px;
-        flex-shrink: 0;
-        border: 1px solid var(--primary);
-        background: var(--dark);
-        color: var(--light);
-        border-radius: 1rem;
-        position: relative;
-        cursor: pointer;
 
-        h2 {
-          position: absolute;
-          bottom: 20px;
-          right: 20px;
-          font-size: 1.5rem;
-          letter-spacing: 2px;
-          // pointer-events: none;
+      h2 {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+        color: var(--primary);
+        font-weight: 700;
+        mix-blend-mode: difference;
+      }
+
+      &:nth-child(1) {
+        background-image: url(https://static.vecteezy.com/system/resources/previews/006/329/839/non_2x/3d-white-clipboard-task-management-todo-check-list-with-pencil-efficient-work-on-project-plan-progress-level-up-concept-assignment-and-exam-checklist-icon-3d-render-on-purple-background-vector.jpg);
+      }
+
+      &:nth-child(2) {
+        background-image: url(https://img.pikbest.com/wp/202409/daily-planner-sleek-3d-render-of-a-contemporary-with-detachable-pages_9714790.jpg!w700wp);
+      }
+
+      &:nth-child(3) {
+        background-image: url(https://img.freepik.com/free-photo/man-jumping-impossible-possible-cliff-sunset-background-business-concept-idea_1323-266.jpg?ga=GA1.1.953688496.1730283594&semt=ais_hybrid&w=740);
+      }
+
+      &:nth-child(4) {
+        background-image: url(https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2022/01/pomodoro-technique-linux.jpg);
+      }
+
+      &:nth-child(5) {
+        background-image: url(https://img.freepik.com/free-photo/bullseye-with-three-darts_1048-1986.jpg?ga=GA1.1.953688496.1730283594&semt=ais_hybrid&w=740);
+      }
+    }
+  }
+
+  .full_elem {
+    padding: 10px;
+    height: 100vh;
+    width: 100vw;
+    background: var(--light);
+    color: var(--dark);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+
+    .close {
+      background: red;
+      padding: 5px 10px;
+      border-radius: 5px;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-weight: 300;
+      cursor: pointer;
+
+      &:active {
+        transform: scale(0.97);
+      }
+    }
+  }
+
+  .todo_page {
+    .todo_container {
+      display: flex;
+      flex-direction: column;
+      height: 90vh;
+      width: 100%;
+      margin-top: 20px;
+      gap: 20px;
+
+      .left {
+        padding: 10px;
+        background: var(--dark);
+        border-radius: 10px;
+        overflow: hidden;
+
+        form {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          gap: 10px;
+
+          input,
+          textarea,
+          #btn {
+            font-size: 1.3rem;
+            padding: 10px 15px;
+            border-radius: 10px;
+            outline: none;
+            border: 1px solid var(--dark);
+          }
+
+          textarea {
+            height: 75%;
+          }
+
+          #checkboxes {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+
+            label {
+              color: var(--light);
+            }
+          }
+
+          #btn {
+            cursor: pointer;
+
+            &:active {
+              scale: 0.97;
+            }
+          }
+        }
+      }
+
+      .right {
+        height: 60%;
+        background: var(--dark);
+        border-radius: 10px;
+        padding: 10px;
+        overflow: auto;
+
+        .todo_tasks {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: start;
+          background: var(--light);
+          height: 45px;
+          padding: 10px 15px;
+          border-radius: 20px;
+          margin-bottom: 10px;
+          overflow: hidden;
+          gap: 10px;
+
+          &:hover {
+            height: auto;
+          }
+
+          .rapper {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            white-space: nowrap;
+
+            h3 {
+              .imp {
+                padding-left: 10px;
+                font-size: 11px;
+                color: var(--red);
+              }
+
+              .false {
+                display: none;
+              }
+
+              .true {
+                display: block;
+              }
+            }
+
+            .btn {
+              background: var(--green);
+              border-radius: 10px;
+              padding: 5px 7px;
+              font-size: 14px;
+              color: var(--light);
+              cursor: pointer;
+
+              &:active {
+                scale: 0.97;
+              }
+            }
+          }
         }
       }
     }
+  }
+}
 
+@media (min-width: 768px) {
+  main {
     .full_elem {
-      padding: 10px;
-      height: 100vh;
-      width: 100vw;
-      background: var(--light);
-      color: var(--dark);
-      position: absolute;
-      top: 0;
-      left: 0;
-      display: none;
+      padding: 30px;
+    }
 
-      span {
-        background: red;
-        padding: 5px 10px;
-        border-radius: 5px;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-family: light;
-        cursor: pointer;
-      }
-      span:active {
-        transform: scale(0.97);
+    .todo_page {
+      .todo_container {
+        flex-direction: row;
+        justify-content: space-between;
+        height: 70vh;
+
+        .left {
+          width: 33%;
+        }
+
+        .right {
+          width: 65%;
+          height: 100%;
+        }
       }
     }
   }

@@ -1,55 +1,56 @@
 @font-face {
-  font-family: light;
-  src: url(./AeonikTRIAL-Light.otf);
+  font-family: "Aeonik";
+  src: url("./AeonikTRIAL-Light.otf");
+  font-weight: 300;
 }
 @font-face {
-  font-family: normal;
-  src: url(./AeonikTRIAL-Regular.otf);
+  font-family: "Aeonik";
+  src: url("./AeonikTRIAL-Regular.otf");
+  font-weight: 400;
 }
 @font-face {
-  font-family: bold;
-  src: url(./AeonikTRIAL-Bold.otf);
+  font-family: "Aeonik";
+  src: url("./AeonikTRIAL-Bold.otf");
+  font-weight: 700;
 }
 :root {
   --light: #eeeeee;
   --primary: #76abae;
   --dark: #222831;
+  --green: #008000;
+  --red: #ff0000;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: normal;
+  font-family: "Aeonik", sans-serif;
+  font-weight: 400;
 }
 
 html,
 body {
   height: 100%;
   width: 100%;
-}
-
-body {
   overflow: hidden;
   background: var(--light);
 }
-body main {
+
+main {
   position: relative;
 }
-body main #elem_container::-webkit-scrollbar {
-  display: none;
-}
-body main #elem_container {
+main #elem_container {
   padding: 1rem;
   display: flex;
   gap: 1rem;
   overflow-x: auto;
   scroll-behavior: smooth;
 }
-body main #elem_container .elem:active {
-  transform: scale(0.97);
+main #elem_container::-webkit-scrollbar {
+  display: none;
 }
-body main #elem_container .elem {
+main #elem_container .elem {
   width: 300px;
   height: 200px;
   flex-shrink: 0;
@@ -59,15 +60,37 @@ body main #elem_container .elem {
   border-radius: 1rem;
   position: relative;
   cursor: pointer;
+  background-size: cover;
 }
-body main #elem_container .elem h2 {
+main #elem_container .elem:active {
+  transform: scale(0.97);
+}
+main #elem_container .elem h2 {
   position: absolute;
   bottom: 20px;
   right: 20px;
   font-size: 1.5rem;
   letter-spacing: 2px;
+  color: var(--primary);
+  font-weight: 700;
+  mix-blend-mode: difference;
 }
-body main .full_elem {
+main #elem_container .elem:nth-child(1) {
+  background-image: url(https://static.vecteezy.com/system/resources/previews/006/329/839/non_2x/3d-white-clipboard-task-management-todo-check-list-with-pencil-efficient-work-on-project-plan-progress-level-up-concept-assignment-and-exam-checklist-icon-3d-render-on-purple-background-vector.jpg);
+}
+main #elem_container .elem:nth-child(2) {
+  background-image: url(https://img.pikbest.com/wp/202409/daily-planner-sleek-3d-render-of-a-contemporary-with-detachable-pages_9714790.jpg!w700wp);
+}
+main #elem_container .elem:nth-child(3) {
+  background-image: url(https://img.freepik.com/free-photo/man-jumping-impossible-possible-cliff-sunset-background-business-concept-idea_1323-266.jpg?ga=GA1.1.953688496.1730283594&semt=ais_hybrid&w=740);
+}
+main #elem_container .elem:nth-child(4) {
+  background-image: url(https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2022/01/pomodoro-technique-linux.jpg);
+}
+main #elem_container .elem:nth-child(5) {
+  background-image: url(https://img.freepik.com/free-photo/bullseye-with-three-darts_1048-1986.jpg?ga=GA1.1.953688496.1730283594&semt=ais_hybrid&w=740);
+}
+main .full_elem {
   padding: 10px;
   height: 100vh;
   width: 100vw;
@@ -78,16 +101,131 @@ body main .full_elem {
   left: 0;
   display: none;
 }
-body main .full_elem span {
+main .full_elem .close {
   background: red;
   padding: 5px 10px;
   border-radius: 5px;
   position: absolute;
   top: 10px;
   right: 10px;
-  font-family: light;
+  font-weight: 300;
   cursor: pointer;
 }
-body main .full_elem span:active {
+main .full_elem .close:active {
   transform: scale(0.97);
+}
+main .todo_page .todo_container {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  width: 100%;
+  margin-top: 20px;
+  gap: 20px;
+}
+main .todo_page .todo_container .left {
+  padding: 10px;
+  background: var(--dark);
+  border-radius: 10px;
+  overflow: hidden;
+}
+main .todo_page .todo_container .left form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 10px;
+}
+main .todo_page .todo_container .left form input,
+main .todo_page .todo_container .left form textarea,
+main .todo_page .todo_container .left form #btn {
+  font-size: 1.3rem;
+  padding: 10px 15px;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid var(--dark);
+}
+main .todo_page .todo_container .left form textarea {
+  height: 75%;
+}
+main .todo_page .todo_container .left form #checkboxes {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+main .todo_page .todo_container .left form #checkboxes label {
+  color: var(--light);
+}
+main .todo_page .todo_container .left form #btn {
+  cursor: pointer;
+}
+main .todo_page .todo_container .left form #btn:active {
+  scale: 0.97;
+}
+main .todo_page .todo_container .right {
+  height: 60%;
+  background: var(--dark);
+  border-radius: 10px;
+  padding: 10px;
+  overflow: auto;
+}
+main .todo_page .todo_container .right .todo_tasks {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  background: var(--light);
+  height: 45px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  gap: 10px;
+}
+main .todo_page .todo_container .right .todo_tasks:hover {
+  height: auto;
+}
+main .todo_page .todo_container .right .todo_tasks .rapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  white-space: nowrap;
+}
+main .todo_page .todo_container .right .todo_tasks .rapper h3 .imp {
+  padding-left: 10px;
+  font-size: 11px;
+  color: var(--red);
+}
+main .todo_page .todo_container .right .todo_tasks .rapper h3 .false {
+  display: none;
+}
+main .todo_page .todo_container .right .todo_tasks .rapper h3 .true {
+  display: block;
+}
+main .todo_page .todo_container .right .todo_tasks .rapper .btn {
+  background: var(--green);
+  border-radius: 10px;
+  padding: 5px 7px;
+  font-size: 14px;
+  color: var(--light);
+  cursor: pointer;
+}
+main .todo_page .todo_container .right .todo_tasks .rapper .btn:active {
+  scale: 0.97;
+}
+
+@media (min-width: 768px) {
+  main .full_elem {
+    padding: 30px;
+  }
+  main .todo_page .todo_container {
+    flex-direction: row;
+    justify-content: space-between;
+    height: 70vh;
+  }
+  main .todo_page .todo_container .left {
+    width: 33%;
+  }
+  main .todo_page .todo_container .right {
+    width: 65%;
+    height: 100%;
+  }
 }/*# sourceMappingURL=style.css.map */

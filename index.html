@@ -16,9 +16,35 @@
         <div id="4" class="elem"><h2>Daily Goals</h2></div>
       </section>
 
-      <section class="full_elem todo">
-        tt <span class="close" id="0">close</span>
+      <section class="full_elem todo_page">
+        <span class="close" id="0">close</span>
+        <h1>My Personal Task List</h1>
+        <div class="todo_container">
+          <div class="left">
+            <form id="todoForm">
+              <input
+                required
+                type="text"
+                class="inp_task"
+                placeholder="enter your task"
+              />
+              <textarea
+                type="text"
+                class="inp_details"
+                rows="6"
+                placeholder="enter task details"
+              ></textarea>
+              <div id="checkboxes">
+                <input type="checkbox" id="checkbox" />
+                <label for="checkbox">Mark as important</label>
+              </div>
+              <input type="submit" id="btn" value="Submit" />
+            </form>
+          </div>
+          <div class="right"></div>
+        </div>
       </section>
+
       <section class="full_elem planner">
         dd <span class="close" id="1">close</span>
       </section>
